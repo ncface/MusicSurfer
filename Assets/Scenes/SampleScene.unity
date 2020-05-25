@@ -322,8 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 080fc113abd61e14b8bd8d689fe05f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  songFile: Assets/Songs/song1.json
-  songFolder: Assets/Songs/
+  songFolder: Song1/
 --- !u!4 &627455033
 Transform:
   m_ObjectHideFlags: 0
@@ -857,7 +856,7 @@ Transform:
   m_Children:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1480233079
 MonoBehaviour:
