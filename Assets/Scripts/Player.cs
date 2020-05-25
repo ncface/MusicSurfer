@@ -8,11 +8,14 @@ using UnityEngine.SocialPlatforms;
 
 public class Player : MonoBehaviour
 {
+
+    public float maxZ; // speed of the player to init the velocity
     public List<GameObject> lanes;
 
     private GameObject activeLane;
 
     private int currentLane = 0;
+    private Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (!GameManager.Instance.IsGameStarted)
+        {
+            if (Input.GetMouseButtonDown(0)) // press mouse button to start the game
+            {
+                velocity = new Vector3(0, 0, maxZ); // init velocity, like addForce
+                GameManager.Instance.IsGameStarted = true;
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.A)) // move left
         {
             if(activeLane == lanes.ElementAt(0))
@@ -50,5 +63,7 @@ public class Player : MonoBehaviour
                 transform.position = new Vector3(activeLane.transform.position.x, transform.position.y, transform.position.z);
             }
         }
+
+        transform.position += velocity * Time.deltaTime;
     }
 }
