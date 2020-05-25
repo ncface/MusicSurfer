@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 
 public class Player : MonoBehaviour
 {
-
-    public float maxZ; // speed of the player to init the velocity
-    public List<GameObject> lanes;
+    // var settings from GameSettings
+    private float runSpeed;
+    private List<GameObject> lanes;
 
     private GameObject activeLane;
-
     private int currentLane = 0;
     private Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
     {
+        lanes = GameSettings.Instance.lanes;
+        runSpeed = GameSettings.Instance.runSpeed;
         currentLane = 1;
         activeLane = lanes.ElementAt(currentLane); // init start lane position of the player
     }
@@ -32,35 +29,35 @@ public class Player : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0)) // press mouse button to start the game
             {
-                velocity = new Vector3(0, 0, maxZ); // init velocity, like addForce
+                velocity = new Vector3(0, 0, runSpeed); // init velocity, like addForce
                 GameManager.Instance.IsGameStarted = true;
             }
         }
 
         if (Input.GetKeyDown(KeyCode.A)) // move left
         {
-            if(activeLane == lanes.ElementAt(0))
-            {
-                // do nothing, border lane of the left side already reached
-            } else
+            if(activeLane != lanes.ElementAt(0))
             {
                 currentLane--;
                 activeLane = lanes.ElementAt(currentLane);
                 transform.position = new Vector3(activeLane.transform.position.x, transform.position.y, transform.position.z);
+            } else
+            {
+                // Debug.Log("Border lane of the left side already reached");
             }
         }
 
         if (Input.GetKeyDown(KeyCode.D)) // move right
         {
-            if (activeLane == lanes.ElementAt(lanes.Count - 1))
-            {
-                // do nothing, border lane of the right side already reached
-            }
-            else
+            if (activeLane != lanes.ElementAt(lanes.Count - 1))
             {
                 currentLane++;
                 activeLane = lanes.ElementAt(currentLane);
                 transform.position = new Vector3(activeLane.transform.position.x, transform.position.y, transform.position.z);
+            }
+            else
+            {
+                // Debug.Log("Border lane of the left right already reached");
             }
         }
 
