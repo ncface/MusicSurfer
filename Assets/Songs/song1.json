@@ -3,15 +3,15 @@
     "Chords": [
         {
             "Time": "100",
-            "Track": "path"
+            "Track": "chord1.wav"
         },
         {
             "Time": "200",
-            "Track": "path"
+            "Track": "chord1.wav"
         },
         {
             "Time": "400",
-            "Track": "path"
+            "Track": "chord1.wav"
         }
     ]
 }
