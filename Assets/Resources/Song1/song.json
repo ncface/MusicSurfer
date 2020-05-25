@@ -3,15 +3,18 @@
     "Chords": [
         {
             "Time": "100",
-            "Track": "chord1"
+            "Track": "chord1",
+            "Lane": 2
         },
         {
             "Time": "200",
-            "Track": "chord1"
+            "Track": "chord1",
+            "Lane": 1
         },
         {
             "Time": "400",
-            "Track": "chord1"
+            "Track": "chord1",
+            "Lane": 0
         }
     ]
 }

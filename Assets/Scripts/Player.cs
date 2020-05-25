@@ -63,4 +63,14 @@ public class Player : MonoBehaviour
 
         transform.position += velocity * Time.deltaTime;
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.tag);
+        Debug.Log(GameSettings.Instance.chordTag);
+        if (other.tag == GameSettings.Instance.chordTag)
+        {
+            other.GetComponent<Chord>().hit();
+        }
+    }
 }

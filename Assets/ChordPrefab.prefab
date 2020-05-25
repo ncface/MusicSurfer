@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6785656598460173117}
   - component: {fileID: 4310112597398617069}
   - component: {fileID: 4628041658272163975}
+  - component: {fileID: 5889238603533666965}
   m_Layer: 0
-  m_Name: Chord
-  m_TagString: Untagged
+  m_Name: ChordPrefab
+  m_TagString: Chord
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,3 +94,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5889238603533666965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2824363564510364964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbefcc711664bed4bb16a7a94c9450f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

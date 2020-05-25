@@ -24,7 +24,7 @@ public class Song
     [Serializable]
     public struct Chord
     {
-        public string Time;
+        public int Time;
         public string Track;
         public int Lane;
 
