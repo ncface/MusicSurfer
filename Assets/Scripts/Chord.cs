@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Chord : MonoBehaviour
 {
+    public float disctanceToHurdle;
+
+    public void Start()
+    {
+        transform.GetChild(0).transform.position += new Vector3(0, 0, disctanceToHurdle);
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == GameSettings.Instance.playerTag)

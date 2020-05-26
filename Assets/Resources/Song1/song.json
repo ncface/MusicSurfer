@@ -24,12 +24,12 @@
         {
             "Time": "500",
             "Track": "piano-e",
-            "Lane": 1
+            "Lane": 2
         },
         {
             "Time": "600",
             "Track": "piano-e",
-            "Lane": 1
+            "Lane": 2
         },
         {
             "Time": "700",
@@ -39,7 +39,7 @@
         {
             "Time": "750",
             "Track": "piano-f",
-            "Lane": 1
+            "Lane": 2
         },
         {
             "Time": "800",
@@ -49,7 +49,7 @@
         {
             "Time": "850",
             "Track": "piano-f",
-            "Lane": 1
+            "Lane": 0
         },
         {
             "Time": "900",
@@ -59,7 +59,7 @@
         {
             "Time": "1000",
             "Track": "piano-f",
-            "Lane": 1
+            "Lane": 2
         },
         {
             "Time": "1050",
@@ -74,7 +74,7 @@
         {
             "Time": "1150",
             "Track": "piano-f",
-            "Lane": 1
+            "Lane": 0
         },
         {
             "Time": "1200",
@@ -84,17 +84,17 @@
         {
             "Time": "1300",
             "Track": "piano-d",
-            "Lane": 1
+            "Lane": 0
         },
         {
             "Time": "1350",
             "Track": "piano-d",
-            "Lane": 1
+            "Lane": 2
         },
         {
             "Time": "1400",
             "Track": "piano-d",
-            "Lane": 1
+            "Lane": 0
         },
         {
             "Time": "1500",
@@ -104,7 +104,7 @@
         {
             "Time": "1600",
             "Track": "piano-c",
-            "Lane": 1
+            "Lane": 2
         },
         {
             "Time": "1650",
@@ -114,7 +114,7 @@
         {
             "Time": "1700",
             "Track": "piano-b",
-            "Lane": 1
+            "Lane": 0
         },
         {
             "Time": "1800",
@@ -124,7 +124,7 @@
         {
             "Time": "1900",
             "Track": "piano-a",
-            "Lane": 1
+            "Lane": 2
         }
         
     ]
