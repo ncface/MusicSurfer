@@ -14,6 +14,7 @@ public class SongEngine : MonoBehaviour
     {
         Song song = LoadSong(songFolder);
         instantiateChords(song);
+        instantiateObstacles(song);
     }
 
     public Song LoadSong(string songFolder)
@@ -47,6 +48,26 @@ public class SongEngine : MonoBehaviour
             audioSource.playOnAwake = false;
             audioSource.clip = chord.chord;
 
+        }
+    }
+
+    public void instantiateObstacles(Song song)
+    {
+        foreach (Song.Obstacle obstacle in song.Obstacles)
+        {
+            GameObject lane = GameSettings.Instance.lanes[obstacle.Lane];
+
+            float zOffset = obstacle.Time / 10;
+            float zPos = lane.transform.position.z + zOffset;
+            float xPos = lane.transform.position.x;
+            float yPos = lane.transform.position.y;
+            Vector3 position = new Vector3(xPos, yPos, zPos);
+
+            //insantiate chord as game object
+            GameObject obstacleObject = Instantiate(obstacle.prefab, position, Quaternion.identity);
+            obstacleObject.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
+
+            obstacleObject.transform.parent = lane.transform;
         }
     }
 }
