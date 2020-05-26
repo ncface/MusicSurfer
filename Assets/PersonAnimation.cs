@@ -8,6 +8,13 @@ public class PersonAnimation : MonoBehaviour
     public RuntimeAnimatorController RunAnimation;
     public RuntimeAnimatorController JumpAnimation;
 
+    public void Update()
+    {
+        Vector3 playerPosition = transform.parent.transform.position;
+        float y = (-1) * (playerPosition.y - 1) - 1.05f;
+        transform.localPosition = new Vector3(0, y, 0);
+    }
+
     public void idle()
     {
         GetComponent<Animator>().runtimeAnimatorController = IdleAnimation;

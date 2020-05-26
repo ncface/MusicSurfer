@@ -98,7 +98,6 @@ public class Player : MonoBehaviour
     
     private void landing()
     {
-        Debug.Log("landen");
         if (GameManager.Instance.IsGameStarted)
         {
             animationCharacter.GetComponent<PersonAnimation>().run();
