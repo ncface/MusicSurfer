@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
         }
 
         transform.position += velocity * Time.deltaTime;
+        transform.rotation = Quaternion.identity;
     }
 
     public void OnTriggerEnter(Collider other)
