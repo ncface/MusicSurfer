@@ -5,18 +5,25 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // var settings from GameSettings
-    private float runSpeed;
+    private float run_Speed;
+    private float jump_Speed;
+
     private List<GameObject> lanes;
 
     private GameObject activeLane;
     private int currentLane = 0;
-    private Vector3 velocity;
+    private Vector3 move;
+
+    private Rigidbody rb; 
+
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         lanes = GameSettings.Instance.lanes;
-        runSpeed = GameSettings.Instance.runSpeed;
+        run_Speed = GameSettings.Instance.runSpeed;
+        jump_Speed = GameSettings.Instance.jumpSpeed;
         currentLane = 1;
         activeLane = lanes.ElementAt(currentLane); // init start lane position of the player
     }
@@ -29,7 +36,7 @@ public class Player : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0)) // press mouse button to start the game
             {
-                velocity = new Vector3(0, 0, runSpeed); // init velocity, like addForce
+                move = new Vector3(0, 0, run_Speed); // init velocity, like addForce
                 GameManager.Instance.IsGameStarted = true;
             }
         }
@@ -61,8 +68,13 @@ public class Player : MonoBehaviour
             }
         }
 
-        transform.position += velocity * Time.deltaTime;
-        transform.rotation = Quaternion.identity;
+        if (Input.GetButtonDown("Jump"))
+        {
+            rb.AddForce(new Vector3(0,jump_Speed, 0), ForceMode.Impulse);
+        }
+
+        transform.position += move * Time.deltaTime;
+        transform.rotation = Quaternion.identity; // blocks the rotation of the player
     }
 
     public void OnTriggerEnter(Collider other)

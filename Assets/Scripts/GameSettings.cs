@@ -25,6 +25,7 @@ public class GameSettings : MonoBehaviour
     #endregion
 
     public float runSpeed; // speed of the player to init the velocity
+    public float jumpSpeed;
 
     public string chordTag;
     public string playerTag;
