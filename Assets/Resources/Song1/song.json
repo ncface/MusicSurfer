@@ -4,17 +4,17 @@
         {
             "Time": "100",
             "Type": 0,
-            "Lane": 2
+            "Lane": 1
         },
         {
             "Time": "200",
             "Type": 0,
-            "Lane": 1
+            "Lane": 0
         },
         {
             "Time": "300",
             "Type": 0,
-            "Lane": 0
+            "Lane": 1
         }
     ],
     "Chords": [
