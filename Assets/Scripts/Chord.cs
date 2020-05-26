@@ -34,6 +34,14 @@ public class Chord : MonoBehaviour
 
     public void hit()
     {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            GameObject child = transform.GetChild(i).gameObject;
+            if (child.tag == "PassingCollider")
+            {
+                Destroy(child);
+            }
+        }
         GetComponent<AudioSource>().Play();
         gameObject.GetComponent<Renderer>().enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;

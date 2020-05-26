@@ -86,14 +86,6 @@ public class Player : MonoBehaviour
         transform.rotation = Quaternion.identity; // blocks the rotation of the player
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == GameSettings.Instance.chordPrefab.tag)
-        {
-            other.GetComponent<Chord>().hit();
-        }
-    }
-
     public void collision()
     {
         move = Vector3.zero;

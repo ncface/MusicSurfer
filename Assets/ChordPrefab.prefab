@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbefcc711664bed4bb16a7a94c9450f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disctanceToHurdle: 2
+  disctanceToHurdle: 3
 --- !u!1001 &6947072654686614645
 PrefabInstance:
   m_ObjectHideFlags: 0
