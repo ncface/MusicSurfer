@@ -29,6 +29,7 @@ public class GameSettings : MonoBehaviour
 
     public GameObject chordPrefab;
     public GameObject player;
+    public List<GameObject> obstaclePrefabs;
 
     public List<GameObject> lanes; // includes all lanes where the player can run
     public int currentLane; // defines on which lane the player is on init

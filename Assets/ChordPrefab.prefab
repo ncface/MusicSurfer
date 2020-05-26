@@ -40,11 +40,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2405964527246007216}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 2.524887, z: 0.1}
-  m_Center: {x: 0, y: 0.73755646, z: 0.02}
+  m_Size: {x: 10, y: 2.524887, z: 2}
+  m_Center: {x: 0, y: 0.73755646, z: 0.75}
 --- !u!114 &2447615072433327102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbefcc711664bed4bb16a7a94c9450f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disctanceToHurdle: 3
+  disctanceToHurdle: 1.5
 --- !u!1001 &6947072654686614645
 PrefabInstance:
   m_ObjectHideFlags: 0

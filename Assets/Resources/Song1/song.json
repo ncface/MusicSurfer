@@ -1,5 +1,22 @@
 {
     "BackgroundTrack": "path",
+    "Obstacles": [
+        {
+            "Time": "100",
+            "Type": 0,
+            "Lane": 2
+        },
+        {
+            "Time": "200",
+            "Type": 0,
+            "Lane": 1
+        },
+        {
+            "Time": "300",
+            "Type": 0,
+            "Lane": 0
+        }
+    ],
     "Chords": [
         {
             "Time": "100",

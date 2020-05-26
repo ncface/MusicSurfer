@@ -8,10 +8,25 @@ public class Song
 {
     public string BackgroundTrack;
     public Chord[] Chords;
+    public Obstacle[] Obstacles;
     
-    
+    public void LoadResources(string SongFolder)
+    {
+        LoadTracks(SongFolder);
+        LoadObstacles();
+    }
 
-    public void LoadTracks(string SongFolder)
+    private void LoadObstacles()
+    {
+        //chords laden und erstellen
+        for (int i = 0; i < Obstacles.Length; i++)
+        {
+            //load track from disc
+            Obstacles[i].loadObstaclePrefab();
+        }
+    }
+
+    private void LoadTracks(string SongFolder)
     {
         //chords laden und erstellen
         for(int i = 0; i < Chords.Length; i++)
@@ -34,6 +49,26 @@ public class Song
         public void loadTrack(string SongFolder)
         {
             chord = Resources.Load<AudioClip>(SongFolder + Track);
+        }
+    }
+
+    [Serializable]
+    public struct Obstacle
+    {
+        public int Time;
+        public int Type;
+        public int Lane;
+
+        [NonSerialized]
+        public GameObject prefab;
+
+        public void loadObstaclePrefab()
+        {
+            if (GameSettings.Instance.obstaclePrefabs.Count > Type 
+                && Type >= 0)
+            {
+                prefab = GameSettings.Instance.obstaclePrefabs[Type];
+            }
         }
     }
 }
