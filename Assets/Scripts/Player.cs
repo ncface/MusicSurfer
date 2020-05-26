@@ -87,6 +87,6 @@ public class Player : MonoBehaviour
 
     public void collision()
     {
-        velocity = Vector3.zero;
+        move = Vector3.zero;
     }
 }
