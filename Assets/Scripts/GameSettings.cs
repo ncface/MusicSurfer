@@ -27,8 +27,8 @@ public class GameSettings : MonoBehaviour
     public float runSpeed; // speed of the player to init the velocity
     public float jumpSpeed;
 
-    public string chordTag;
-    public string playerTag;
+    public GameObject chordPrefab;
+    public GameObject player;
 
     public List<GameObject> lanes; // includes all lanes where the player can run
     public int currentLane; // defines on which lane the player is on init

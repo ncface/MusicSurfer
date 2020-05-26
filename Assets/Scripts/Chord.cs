@@ -8,12 +8,25 @@ public class Chord : MonoBehaviour
 
     public void Start()
     {
-        transform.GetChild(0).transform.position += new Vector3(0, 0, disctanceToHurdle);
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            GameObject child = transform.GetChild(i).gameObject;
+            if (child.tag == "Hurdle")
+            {
+                child.transform.position += new Vector3(0, 0, disctanceToHurdle);
+            }
+            if (child.tag == "PassingCollider")
+            {
+                float playerThickness = GameSettings.Instance.player.GetComponent<CapsuleCollider>().radius;
+                child.transform.position += new Vector3(0, 0, playerThickness);
+            }
+        }
+        
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == GameSettings.Instance.playerTag)
+        if (other.tag == GameSettings.Instance.player.tag)
         {
             hit();
         }

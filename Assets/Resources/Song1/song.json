@@ -29,7 +29,7 @@
         {
             "Time": "600",
             "Track": "piano-e",
-            "Lane": 2
+            "Lane": 0
         },
         {
             "Time": "700",
@@ -69,7 +69,7 @@
         {
             "Time": "1100",
             "Track": "piano-f",
-            "Lane": 1
+            "Lane": 2
         },
         {
             "Time": "1150",

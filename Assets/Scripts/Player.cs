@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == GameSettings.Instance.chordTag)
+        if (other.tag == GameSettings.Instance.chordPrefab.tag)
         {
             other.GetComponent<Chord>().hit();
         }
