@@ -558,6 +558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 12
   chordTag: Chord
+  playerTag: Player
   lanes:
   - {fileID: 1344459680}
   - {fileID: 1905668160}
@@ -671,7 +672,7 @@ GameObject:
   - component: {fileID: 1480233080}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

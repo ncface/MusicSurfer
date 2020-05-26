@@ -27,6 +27,7 @@ public class GameSettings : MonoBehaviour
     public float runSpeed; // speed of the player to init the velocity
 
     public string chordTag;
+    public string playerTag;
 
     public List<GameObject> lanes; // includes all lanes where the player can run
 }
