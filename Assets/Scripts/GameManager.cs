@@ -27,4 +27,9 @@ public class GameManager : MonoBehaviour
     public bool IsGameStarted { get; set; }
     public bool IsGameLost = false;
     public bool IsGameWon = false;
+
+    public void GameOver()
+    {
+        Debug.Log("GameOver");
+    }
 }

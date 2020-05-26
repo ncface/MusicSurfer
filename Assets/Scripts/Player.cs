@@ -97,5 +97,6 @@ public class Player : MonoBehaviour
     public void collision()
     {
         move = Vector3.zero;
+        GameManager.Instance.GameOver();
     }
 }
