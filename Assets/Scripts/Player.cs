@@ -84,4 +84,9 @@ public class Player : MonoBehaviour
             other.GetComponent<Chord>().hit();
         }
     }
+
+    public void collision()
+    {
+        velocity = Vector3.zero;
+    }
 }

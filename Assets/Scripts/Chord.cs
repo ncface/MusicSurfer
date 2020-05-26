@@ -15,5 +15,8 @@ public class Chord : MonoBehaviour
     public void hit()
     {
         GetComponent<AudioSource>().Play();
+        gameObject.GetComponent<Renderer>().enabled = false;
+        gameObject.GetComponent<Collider>().enabled = false;
+        Destroy(gameObject, 2);
     }
 }
