@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+    public Transform groundCheck;
+    private float groundDistance = 0.4f;
+    public LayerMask groundMask;
+
     // var settings from GameSettings
     private float run_Speed;
     private float jump_Speed;
@@ -14,7 +19,9 @@ public class Player : MonoBehaviour
     private int current_Lane;
     private Vector3 move;
 
-    private Rigidbody rb; 
+    private Rigidbody rb;
+
+    private bool isGrounded;
 
 
     // Start is called before the first frame update
@@ -31,6 +38,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (!GameManager.Instance.IsGameStarted)
         {
@@ -68,9 +76,10 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(new Vector3(0,jump_Speed, 0), ForceMode.Impulse);
+            isGrounded = false;
         }
 
         transform.position += move * Time.deltaTime;
