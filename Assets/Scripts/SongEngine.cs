@@ -21,7 +21,7 @@ public class SongEngine : MonoBehaviour
         string jsonString = File.ReadAllText("Assets/Resources/" + songFolder + "song.json");
         Song song = JsonUtility.FromJson<Song>(jsonString);
         
-        song.LoadTracks(songFolder);
+        song.LoadResources(songFolder);
         return song;
     }
 
