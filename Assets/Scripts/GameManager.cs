@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,8 +29,23 @@ public class GameManager : MonoBehaviour
     public bool IsGameLost = false;
     public bool IsGameWon = false;
 
+    public GameObject EndMenu;
+
     public void GameOver()
     {
+
+        
+        // IsGameLost = true;
+        // IsGameStarted = false;
         Debug.Log("GameOver");
+
+        EndMenu.SetActive(true);
+        
+        
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
