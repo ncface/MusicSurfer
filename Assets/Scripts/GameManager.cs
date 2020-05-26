@@ -29,23 +29,16 @@ public class GameManager : MonoBehaviour
     public bool IsGameLost = false;
     public bool IsGameWon = false;
 
-    public GameObject EndMenu;
+    public GameObject EndMenu; // panel object of end menu
 
     public void GameOver()
     {
-
-        
-        // IsGameLost = true;
-        // IsGameStarted = false;
-        Debug.Log("GameOver");
-
-        EndMenu.SetActive(true);
-        
-        
+        if (IsGameLost == false)
+        {
+            IsGameLost = true;
+            IsGameStarted = false;
+            EndMenu.SetActive(true);
+        }
     }
 
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
 }
