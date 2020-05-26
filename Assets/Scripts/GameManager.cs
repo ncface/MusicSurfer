@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    public bool IsGameStarted { get; set; }
+    public bool IsGameStarted = false;
     public bool IsGameLost = false;
     public bool IsGameWon = false;
 

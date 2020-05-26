@@ -8,8 +8,11 @@ public class Hurdle : MonoBehaviour
     {
         if (other.tag == GameSettings.Instance.player.tag)
         {
-            other.GetComponent<Player>().collision();
+            Vector3 collisionPoint = other.ClosestPoint(transform.position);
+            if (transform.position.z - transform.localScale.z / 2 == collisionPoint.z)
+            {
+                other.GetComponent<Player>().collision();
+            }
         }
     }
-    
 }

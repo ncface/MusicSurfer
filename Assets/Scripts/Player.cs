@@ -6,8 +6,9 @@ public class Player : MonoBehaviour
 {
 
     public Transform groundCheck;
-    private float groundDistance = 0.4f;
     public LayerMask groundMask;
+
+    public GameObject animationCharacter;
 
     // var settings from GameSettings
     private float run_Speed;
@@ -21,8 +22,8 @@ public class Player : MonoBehaviour
 
     private Rigidbody rb;
 
-    private bool isGrounded;
-
+    private bool isGrounded = true;
+    private float groundDistance = 0.4f;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +39,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        if (isGrounded != Physics.CheckSphere(groundCheck.position, groundDistance, groundMask))
+        {
+            isGrounded = !isGrounded;
+            if(isGrounded == true)
+            {
+                landing();
+            }
+        }
 
         if (!GameManager.Instance.IsGameStarted)
         {
@@ -46,6 +54,7 @@ public class Player : MonoBehaviour
             {
                 move = new Vector3(0, 0, run_Speed); // init velocity, like addForce
                 GameManager.Instance.IsGameStarted = true;
+                animationCharacter.GetComponent<PersonAnimation>().run();
             }
         }
 
@@ -78,17 +87,32 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.AddForce(new Vector3(0,jump_Speed, 0), ForceMode.Impulse);
-            isGrounded = false;
+            rb.AddForce(new Vector3(0, jump_Speed, 0), ForceMode.Impulse);
+            //isGrounded = false;
+            animationCharacter.GetComponent<PersonAnimation>().jump();
         }
-
+        
         transform.position += move * Time.deltaTime;
         transform.rotation = Quaternion.identity; // blocks the rotation of the player
+    }
+    
+    private void landing()
+    {
+        Debug.Log("landen");
+        if (GameManager.Instance.IsGameStarted)
+        {
+            animationCharacter.GetComponent<PersonAnimation>().run();
+        }
+        else
+        {
+            animationCharacter.GetComponent<PersonAnimation>().idle();
+        }
     }
 
     public void collision()
     {
         move = Vector3.zero;
         GameManager.Instance.GameOver();
+        animationCharacter.GetComponent<PersonAnimation>().idle();
     }
 }
