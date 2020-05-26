@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 12
-  jumpSpeed: 5
+  jumpSpeed: 4
   chordPrefab: {fileID: 2824363564510364964, guid: b1ae206f40943904ebd3697042cd52b0,
     type: 3}
   player: {fileID: 1480233074}

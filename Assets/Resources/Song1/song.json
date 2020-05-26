@@ -19,17 +19,17 @@
     ],
     "Chords": [
         {
-            "Time": "100",
+            "Time": "10000",
             "Track": "piano-a",
             "Lane": 2
         },
         {
-            "Time": "200",
+            "Time": "20000",
             "Track": "piano-b",
             "Lane": 1
         },
         {
-            "Time": "300",
+            "Time": "30000",
             "Track": "piano-c",
             "Lane": 0
         },
