@@ -564,6 +564,7 @@ MonoBehaviour:
   - {fileID: 1344459680}
   - {fileID: 1905668160}
   - {fileID: 400669189}
+  currentLane: 1
 --- !u!1 &1344459680
 GameObject:
   m_ObjectHideFlags: 0

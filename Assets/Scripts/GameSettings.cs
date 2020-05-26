@@ -31,4 +31,5 @@ public class GameSettings : MonoBehaviour
     public string playerTag;
 
     public List<GameObject> lanes; // includes all lanes where the player can run
+    public int currentLane; // defines on which lane the player is on init
 }

@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private List<GameObject> lanes;
 
     private GameObject activeLane;
-    private int currentLane = 0;
+    private int current_Lane;
     private Vector3 move;
 
     private Rigidbody rb; 
@@ -22,10 +22,10 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         lanes = GameSettings.Instance.lanes;
-        run_Speed = GameSettings.Instance.runSpeed;
+        run_Speed = GameSettings.Instance.runSpeed; 
         jump_Speed = GameSettings.Instance.jumpSpeed;
-        currentLane = 1;
-        activeLane = lanes.ElementAt(currentLane); // init start lane position of the player
+        current_Lane = GameSettings.Instance.currentLane;
+        activeLane = lanes.ElementAt(current_Lane); // init start lane position of the player
     }
 
     // Update is called once per frame
@@ -45,8 +45,8 @@ public class Player : MonoBehaviour
         {
             if(activeLane != lanes.ElementAt(0))
             {
-                currentLane--;
-                activeLane = lanes.ElementAt(currentLane);
+                current_Lane--;
+                activeLane = lanes.ElementAt(current_Lane);
                 transform.position = new Vector3(activeLane.transform.position.x, transform.position.y, transform.position.z);
             } else
             {
@@ -58,8 +58,8 @@ public class Player : MonoBehaviour
         {
             if (activeLane != lanes.ElementAt(lanes.Count - 1))
             {
-                currentLane++;
-                activeLane = lanes.ElementAt(currentLane);
+                current_Lane++;
+                activeLane = lanes.ElementAt(current_Lane);
                 transform.position = new Vector3(activeLane.transform.position.x, transform.position.y, transform.position.z);
             }
             else
