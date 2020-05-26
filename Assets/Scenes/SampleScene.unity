@@ -871,8 +871,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8470dd2585c2ff341b131f0c4d11a493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 12
-  jumpSpeed: 8
+  runSpeed: 10
+  jumpSpeed: 5
+  jumpSlowdown: 3.5
   chordPrefab: {fileID: 2824363564510364964, guid: b1ae206f40943904ebd3697042cd52b0,
     type: 3}
   player: {fileID: 1480233074}
@@ -1137,10 +1138,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.3
+  m_Height: 1.8
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!23 &1480233076
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1667,7 +1668,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 54ff599963ec97843ad4d4ddeeb61810, type: 2}
+      objectReference: {fileID: 9100000, guid: a8555c0cff30527479e32562cef9141f, type: 2}
     - target: {fileID: 95757698653226496, guid: ff187f87b5b6b5e44a37a774ddaa7d47,
         type: 3}
       propertyPath: m_ApplyRootMotion

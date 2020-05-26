@@ -10,9 +10,9 @@ public class PersonAnimation : MonoBehaviour
 
     public void Update()
     {
-        Vector3 playerPosition = transform.parent.transform.position;
-        float y = (-1) * (playerPosition.y - 1) - 1.05f;
-        transform.localPosition = new Vector3(0, y, 0);
+        //Vector3 playerPosition = transform.parent.transform.position;
+        //float y = (-1) * (playerPosition.y - 1) - 1.05f;
+        //transform.localPosition = new Vector3(0, y, 0);
     }
 
     public void idle()
@@ -30,6 +30,7 @@ public class PersonAnimation : MonoBehaviour
 
     public void jump()
     {
-        GetComponent<Animator>().runtimeAnimatorController = JumpAnimation;
+        //GetComponent<Animator>().runtimeAnimatorController = JumpAnimation;
+        GetComponent<Animator>().runtimeAnimatorController = RunAnimation;
     }
 }

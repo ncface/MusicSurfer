@@ -26,6 +26,7 @@ public class GameSettings : MonoBehaviour
 
     public float runSpeed; // speed of the player to init the velocity
     public float jumpSpeed;
+    public float jumpSlowdown;
 
     public GameObject chordPrefab;
     public GameObject player;

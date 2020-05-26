@@ -42,9 +42,12 @@ public class Player : MonoBehaviour
         if (isGrounded != Physics.CheckSphere(groundCheck.position, groundDistance, groundMask))
         {
             isGrounded = !isGrounded;
-            if(isGrounded == true)
+            if(isGrounded)
             {
                 landing();
+            } else
+            {
+                takeoff();
             }
         }
 
@@ -88,7 +91,7 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(new Vector3(0, jump_Speed, 0), ForceMode.Impulse);
-            //isGrounded = false;
+
             animationCharacter.GetComponent<PersonAnimation>().jump();
         }
         
@@ -106,6 +109,12 @@ public class Player : MonoBehaviour
         {
             animationCharacter.GetComponent<PersonAnimation>().idle();
         }
+        move += new Vector3(0, 0, GameSettings.Instance.jumpSlowdown);
+    }
+
+    private void takeoff()
+    {
+        move -= new Vector3(0, 0, GameSettings.Instance.jumpSlowdown);
     }
 
     public void collision()
