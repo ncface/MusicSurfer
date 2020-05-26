@@ -848,7 +848,8 @@ MonoBehaviour:
   chordPrefab: {fileID: 2824363564510364964, guid: b1ae206f40943904ebd3697042cd52b0,
     type: 3}
   player: {fileID: 1480233074}
-  obstaclePrefabs: []
+  obstaclePrefabs:
+  - {fileID: 7321389443194673015, guid: 5b713ee9a65ed334f98f714d5e822253, type: 3}
   lanes:
   - {fileID: 1344459680}
   - {fileID: 1905668160}

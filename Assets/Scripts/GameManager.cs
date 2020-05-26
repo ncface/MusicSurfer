@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     {
         if (IsGameLost == false)
         {
+            Time.timeScale = 0f;
             IsGameLost = true;
             IsGameStarted = false;
             EndMenu.SetActive(true);
