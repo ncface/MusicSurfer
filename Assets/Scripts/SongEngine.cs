@@ -8,7 +8,6 @@ using UnityEngine;
 public class SongEngine : MonoBehaviour
 {
     public string songFolder;
-    public GameObject chordPrefab;
 
     public void Start()
     {
@@ -40,7 +39,16 @@ public class SongEngine : MonoBehaviour
             Vector3 position = new Vector3(xPos, yPos, zPos);
 
             //insantiate chord as game object
-            GameObject chordObject = Instantiate(chordPrefab, position, Quaternion.identity);
+            GameObject chordObject = Instantiate(chord.prefab, position, Quaternion.identity);
+
+            if (chord.HurdleBehind)
+            {
+                float zHurdleOffset = 2 * chord.DistanceToHurdle;
+                Vector3 positionHurdle = new Vector3(0, -0.5f, zHurdleOffset);
+                GameObject hurdleBehind = Instantiate(chord.hurdlePrefab, chordObject.transform);
+                hurdleBehind.transform.position += positionHurdle;
+                //hurdleBehind.transform.parent = chordObject.transform;
+            }
 
             chordObject.transform.parent = lane.transform;
 
