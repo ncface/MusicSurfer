@@ -15,6 +15,7 @@ public class SongEngine : MonoBehaviour
         Song song = LoadSong(songFolder);
         instantiateChords(song);
         instantiateObstacles(song);
+        instantiateFinish(song);
     }
 
     public Song LoadSong(string songFolder)
@@ -73,6 +74,10 @@ public class SongEngine : MonoBehaviour
 
     public void instantiateFinish(Song song)
     {
-        
+        Vector3 position = new Vector3(0, 0, song.Finish / 10);
+        GameObject finish = Instantiate(GameSettings.Instance.finishPrefab, position, Quaternion.identity);
+
+        //set Environment as Parent
+        finish.transform.parent = GameSettings.Instance.lanes[0].transform.parent.transform.parent;
     }
 }
