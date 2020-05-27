@@ -1,6 +1,6 @@
 {
     "BackgroundTrack": "background",
-    "Finish":  1900,
+    "Finish":  2000,
     "Obstacles": [
         {
             "Time": "100",

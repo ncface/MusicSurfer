@@ -34,6 +34,7 @@ public class GameSettings : MonoBehaviour
     public GameObject passingCheck;
     public GameObject finishPrefab;
     public GameObject audioPlayer;
+    public GameObject LanesObjects;
     public List<GameObject> obstaclePrefabs;
 
     public List<GameObject> lanes; // includes all lanes where the player can run

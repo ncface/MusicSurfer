@@ -13,7 +13,7 @@ public class WinningCollider : MonoBehaviour
             other.GetComponent<Player>().win();
 
             //starte feuerwerk
-            Instantiate(dancingPeople,new Vector3(0,0,(other.transform.position.z + 3)), Quaternion.identity);
+            Instantiate(dancingPeople,new Vector3(0,0.2f,(other.transform.position.z + 3)), Quaternion.identity);
 
             GameManager.Instance.GameWon();
         }
