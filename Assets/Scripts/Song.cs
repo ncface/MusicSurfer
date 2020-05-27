@@ -10,7 +10,10 @@ public class Song
     public int Finish;
     public Chord[] Chords;
     public Obstacle[] Obstacles;
-    
+
+    [NonSerialized]
+    public AudioClip BackgroundTrackAudio;
+
     public void LoadResources(string SongFolder)
     {
         LoadTracks(SongFolder);

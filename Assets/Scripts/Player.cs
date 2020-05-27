@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
 
         if (!GameManager.Instance.IsGameStarted)
         {
+            rb.velocity = new Vector3(0, 0, 0);
             if (Input.GetMouseButtonDown(0)) // press mouse button to start the game
             {
                 move = new Vector3(0, 0, run_Speed); // init velocity, like addForce

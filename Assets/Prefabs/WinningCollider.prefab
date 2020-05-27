@@ -1332,3 +1332,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7fe54d9bcc5954b9f19ca8835e1e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dancingPeople: {fileID: 7403066027569389042, guid: c2261a9a9836ec545a23ba7c4317b8fe,
+    type: 3}

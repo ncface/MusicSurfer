@@ -524,7 +524,7 @@ MonoBehaviour:
   IdleAnimation: {fileID: 9100000, guid: a8555c0cff30527479e32562cef9141f, type: 2}
   RunAnimation: {fileID: 9100000, guid: eb79e3fd0dd669f40a90a984b92a0ccf, type: 2}
   JumpAnimation: {fileID: 9100000, guid: 54ff599963ec97843ad4d4ddeeb61810, type: 2}
-  WinAnimation: {fileID: 9100000, guid: f738ee3ecdc05594c99316c4b42edbc0, type: 2}
+  WinAnimation: {fileID: 9100000, guid: dcbfa50e1993610408c6a4a01fa06aa6, type: 2}
 --- !u!4 &574064997 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4490090376548836, guid: ff187f87b5b6b5e44a37a774ddaa7d47,
@@ -1247,6 +1247,7 @@ MonoBehaviour:
     type: 3}
   finishPrefab: {fileID: 7726612632640429550, guid: d6cb5a4b208af844abc839e7a8104794,
     type: 3}
+  audioPlayer: {fileID: 1663333529}
   obstaclePrefabs:
   - {fileID: 7321389443194673015, guid: 5b713ee9a65ed334f98f714d5e822253, type: 3}
   lanes:
@@ -1777,6 +1778,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535027577}
   m_CullTransparentMesh: 0
+--- !u!1 &1663333529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1663333530}
+  m_Layer: 0
+  m_Name: AudioPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1663333530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663333529}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1029203, y: 0.7308345, z: 7.1274023}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1696050760
 GameObject:
   m_ObjectHideFlags: 0

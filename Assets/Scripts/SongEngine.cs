@@ -12,12 +12,13 @@ public class SongEngine : MonoBehaviour
     public void Start()
     {
         Song song = LoadSong(songFolder);
+        instantiateBackgroundTrack(song);
         instantiateChords(song);
         instantiateObstacles(song);
         instantiateFinish(song);
     }
 
-    public Song LoadSong(string songFolder)
+    private Song LoadSong(string songFolder)
     {
         string jsonString = File.ReadAllText("Assets/Resources/" + songFolder + "song.json");
         Song song = JsonUtility.FromJson<Song>(jsonString);
@@ -26,7 +27,17 @@ public class SongEngine : MonoBehaviour
         return song;
     }
 
-    public void instantiateChords(Song song)
+    private void instantiateBackgroundTrack(Song song)
+    {
+        GameObject audioPlayer = GameSettings.Instance.audioPlayer;
+
+        // add audio-clip to new audio-source
+        AudioSource audioSource = audioPlayer.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.clip = song.BackgroundTrackAudio;
+    }
+
+    private void instantiateChords(Song song)
     {
         foreach(Song.Chord chord in song.Chords)
         {
@@ -60,7 +71,7 @@ public class SongEngine : MonoBehaviour
         }
     }
 
-    public void instantiateObstacles(Song song)
+    private void instantiateObstacles(Song song)
     {
         foreach (Song.Obstacle obstacle in song.Obstacles)
         {
@@ -80,7 +91,7 @@ public class SongEngine : MonoBehaviour
         }
     }
 
-    public void instantiateFinish(Song song)
+    private void instantiateFinish(Song song)
     {
         Vector3 position = new Vector3(0, 0, song.Finish / 10);
         GameObject finish = Instantiate(GameSettings.Instance.finishPrefab, position, Quaternion.identity);
