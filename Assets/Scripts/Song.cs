@@ -7,6 +7,7 @@ using UnityEngine;
 public class Song
 {
     public string BackgroundTrack;
+    public int Finish;
     public Chord[] Chords;
     public Obstacle[] Obstacles;
     

@@ -70,4 +70,9 @@ public class SongEngine : MonoBehaviour
             obstacleObject.transform.parent = lane.transform;
         }
     }
+
+    public void instantiateFinish(Song song)
+    {
+        
+    }
 }
