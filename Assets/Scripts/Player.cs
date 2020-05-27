@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (!GameManager.Instance.IsGameStarted)
+        if (!GameManager.Instance.IsGameStarted && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost)
         {
             rb.velocity = new Vector3(0, 0, 0);
             
