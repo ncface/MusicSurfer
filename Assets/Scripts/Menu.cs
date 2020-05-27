@@ -8,6 +8,7 @@ public class Menu : MonoBehaviour
 
     public void Restart()
     {
+        Time.timeScale = 0;
         SceneManager.LoadScene("SampleScene");
         Time.timeScale = 1f;
     }

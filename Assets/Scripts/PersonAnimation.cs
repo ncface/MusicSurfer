@@ -7,6 +7,7 @@ public class PersonAnimation : MonoBehaviour
     public RuntimeAnimatorController IdleAnimation;
     public RuntimeAnimatorController RunAnimation;
     public RuntimeAnimatorController JumpAnimation;
+    public RuntimeAnimatorController WinAnimation;
 
     public void Update()
     {
@@ -32,5 +33,11 @@ public class PersonAnimation : MonoBehaviour
     {
         //GetComponent<Animator>().runtimeAnimatorController = JumpAnimation;
         GetComponent<Animator>().runtimeAnimatorController = RunAnimation;
+    }
+
+    public void win()
+    {
+        //GetComponent<Animator>().runtimeAnimatorController = JumpAnimation;
+        GetComponent<Animator>().runtimeAnimatorController = WinAnimation;
     }
 }

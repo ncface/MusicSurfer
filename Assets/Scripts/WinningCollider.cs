@@ -8,6 +8,11 @@ public class WinningCollider : MonoBehaviour
     {
         if (other.tag == GameSettings.Instance.player.tag)
         {
+            other.GetComponent<Player>().win();
+            
+            //starte feuerwerk
+            //...
+
             GameManager.Instance.GameWon();
         }
     }

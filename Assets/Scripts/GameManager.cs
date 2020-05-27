@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     {
         if (!IsGameLost && IsGameStarted)
         {
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
             IsGameWon = true;
             IsGameStarted = false;
             WonMenu.SetActive(true);

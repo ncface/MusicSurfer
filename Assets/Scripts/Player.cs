@@ -120,7 +120,14 @@ public class Player : MonoBehaviour
     public void collision()
     {
         move = Vector3.zero;
-        GameManager.Instance.GameOver();
         animationCharacter.GetComponent<PersonAnimation>().idle();
+        GameManager.Instance.GameOver();
+    }
+
+    public void win()
+    {
+        move = Vector3.zero;
+        animationCharacter.GetComponent<PersonAnimation>().win();
+        rb.velocity = new Vector3(0,0,0);
     }
 }

@@ -524,6 +524,7 @@ MonoBehaviour:
   IdleAnimation: {fileID: 9100000, guid: a8555c0cff30527479e32562cef9141f, type: 2}
   RunAnimation: {fileID: 9100000, guid: eb79e3fd0dd669f40a90a984b92a0ccf, type: 2}
   JumpAnimation: {fileID: 9100000, guid: 54ff599963ec97843ad4d4ddeeb61810, type: 2}
+  WinAnimation: {fileID: 9100000, guid: f738ee3ecdc05594c99316c4b42edbc0, type: 2}
 --- !u!4 &574064997 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4490090376548836, guid: ff187f87b5b6b5e44a37a774ddaa7d47,
