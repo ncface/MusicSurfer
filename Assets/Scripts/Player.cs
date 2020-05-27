@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && GameManager.Instance.IsGameStarted)
         {
             rb.AddForce(new Vector3(0, jump_Speed, 0), ForceMode.Impulse);
 
