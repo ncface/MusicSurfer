@@ -43,13 +43,31 @@ public class Song
         public int Time;
         public string Track;
         public int Lane;
+        public int Layer;
+        public bool HurdleBehind;
+        public int HrudleBehindType;
+        public int DistanceToHurdle;
 
         [NonSerialized]
         public AudioClip chord;
-
+        [NonSerialized]
+        public GameObject prefab;
+        [NonSerialized]
+        public GameObject hurdlePrefab;
+        
         public void loadTrack(string SongFolder)
         {
             chord = Resources.Load<AudioClip>(SongFolder + Track);
+
+            prefab = GameSettings.Instance.chordPrefab;
+
+            //load prefab for obstacle
+            if (HurdleBehind
+                && GameSettings.Instance.obstaclePrefabs.Count > HrudleBehindType
+                && HrudleBehindType >= 0)
+            {
+                hurdlePrefab = GameSettings.Instance.obstaclePrefabs[HrudleBehindType];
+            }
         }
     }
 

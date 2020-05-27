@@ -13,7 +13,7 @@ public class Chord : MonoBehaviour
             GameObject child = transform.GetChild(i).gameObject;
             if (child.tag == "Hurdle")
             {
-                child.transform.position += new Vector3(0, 0, disctanceToHurdle);
+                //child.transform.position += new Vector3(0, 0, disctanceToHurdle);
             }
             if (child.tag == "PassingCollider")
             {
