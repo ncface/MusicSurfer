@@ -147,6 +147,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicalNote
       objectReference: {fileID: 0}
+    - target: {fileID: 1015834703641280245, guid: 963f8d2a22953394e8eb300dcc395c29,
+        type: 3}
+      propertyPath: m_TagString
+      value: Chord
+      objectReference: {fileID: 0}
     - target: {fileID: 4054261794013416678, guid: 963f8d2a22953394e8eb300dcc395c29,
         type: 3}
       propertyPath: m_LocalPosition.x
