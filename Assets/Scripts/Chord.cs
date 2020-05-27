@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 
@@ -56,7 +57,7 @@ public class Chord : MonoBehaviour
             {
                 child.GetComponent<Renderer>().enabled = false;
                 child.GetComponent<Collider>().enabled = false;
-                spawnDestroyEffect(child.transform);
+                spawnDestroyEffect(child);
             }
         }
 
@@ -64,12 +65,14 @@ public class Chord : MonoBehaviour
         //Destroy(gameObject, 2);
     }
 
-    private void spawnDestroyEffect(Transform spawnTransform)
+    private void spawnDestroyEffect(GameObject child)
     {
+        Transform spawnTransform = child.transform;
         Vector3 spawnPosition = new Vector3(spawnTransform.position.x, spawnTransform.position.y, spawnTransform.position.z);
+
         GameObject effect = Instantiate(destroyEffect.gameObject, spawnPosition, Quaternion.identity);
         MainModule mm = effect.GetComponent<ParticleSystem>().main;
-        mm.startColor = this.gameObject.GetComponent<Renderer>().material.color;
+        mm.startColor = child.GetComponent<Renderer>().material.color;
         Destroy(effect, destroyEffect.main.startLifetime.constant); // destroys effect after liftetime
     }
 }
