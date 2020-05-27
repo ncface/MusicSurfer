@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public bool IsGameWon = false;
 
     public GameObject EndMenu; // panel object of end menu
+    public GameObject WonMenu;
 
     public void GameOver()
     {
@@ -39,6 +40,16 @@ public class GameManager : MonoBehaviour
             IsGameLost = true;
             IsGameStarted = false;
             EndMenu.SetActive(true);
+        }
+    }
+    public void GameWon()
+    {
+        if (!IsGameLost && IsGameStarted)
+        {
+            Time.timeScale = 0f;
+            IsGameWon = true;
+            IsGameStarted = false;
+            WonMenu.SetActive(true);
         }
     }
 
