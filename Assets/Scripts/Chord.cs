@@ -57,6 +57,6 @@ public class Chord : MonoBehaviour
         }
 
         //müssen wir überhaupt zerstören?
-        Destroy(gameObject, 2);
+        //Destroy(gameObject, 2);
     }
 }

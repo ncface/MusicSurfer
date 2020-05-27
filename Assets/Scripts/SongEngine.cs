@@ -35,6 +35,7 @@ public class SongEngine : MonoBehaviour
         AudioSource audioSource = audioPlayer.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
         audioSource.clip = song.BackgroundTrackAudio;
+        audioSource.loop = true;
     }
 
     private void instantiateChords(Song song)

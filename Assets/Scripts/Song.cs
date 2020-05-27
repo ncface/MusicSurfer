@@ -32,8 +32,14 @@ public class Song
 
     private void LoadTracks(string SongFolder)
     {
+        //load background audio
+        if (BackgroundTrack.Length > 0)
+        {
+            BackgroundTrackAudio = Resources.Load<AudioClip>(SongFolder + BackgroundTrack);
+        }
+
         //chords laden und erstellen
-        for(int i = 0; i < Chords.Length; i++)
+        for (int i = 0; i < Chords.Length; i++)
         {
             //load track from disc
             Chords[i].loadTrack(SongFolder);

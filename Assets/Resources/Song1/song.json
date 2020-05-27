@@ -1,5 +1,5 @@
 {
-    "BackgroundTrack": "path",
+    "BackgroundTrack": "background",
     "Finish":  1900,
     "Obstacles": [
         {

@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
             IsGameLost = true;
             IsGameStarted = false;
             EndMenu.SetActive(true);
+            GameSettings.Instance.audioPlayer.GetComponent<AudioSource>().Pause();
         }
     }
     public void GameWon()
@@ -50,7 +51,13 @@ public class GameManager : MonoBehaviour
             IsGameWon = true;
             IsGameStarted = false;
             WonMenu.SetActive(true);
+            GameSettings.Instance.audioPlayer.GetComponent<AudioSource>().Pause();
         }
     }
 
+    public void startGame()
+    {
+        IsGameStarted = true;
+        GameSettings.Instance.audioPlayer.GetComponent<AudioSource>().Play();
+    }
 }

@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButtonDown(0)) // press mouse button to start the game
             {
                 move = new Vector3(0, 0, run_Speed); // init velocity, like addForce
-                GameManager.Instance.IsGameStarted = true;
+                GameManager.Instance.startGame();
                 animationCharacter.GetComponent<PersonAnimation>().run();
             }
         }
