@@ -1238,7 +1238,7 @@ MonoBehaviour:
   runSpeed: 10
   jumpSpeed: 5
   jumpSlowdown: 3.5
-  chordPrefab: {fileID: 6571202089991243362, guid: 158feeffbec83424ebb707628e18e4f0,
+  chordPrefab: {fileID: 5506443644651533298, guid: 4e6c0a3edb0d30e42ad0ab85f54eeed8,
     type: 3}
   player: {fileID: 1480233074}
   hurdle: {fileID: 7321389443194673015, guid: 5b713ee9a65ed334f98f714d5e822253, type: 3}
