@@ -42,9 +42,21 @@ public class Chord : MonoBehaviour
                 Destroy(child);
             }
         }
+        //start audio
         GetComponent<AudioSource>().Play();
-        gameObject.GetComponent<Renderer>().enabled = false;
-        gameObject.GetComponent<Collider>().enabled = false;
+
+        //make chord object invisible
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            GameObject child = transform.GetChild(i).gameObject;
+            if (child.tag == "Chord")
+            {
+                child.GetComponent<Renderer>().enabled = false;
+                child.GetComponent<Collider>().enabled = false;
+            }
+        }
+
+        //müssen wir überhaupt zerstören?
         Destroy(gameObject, 2);
     }
 }
