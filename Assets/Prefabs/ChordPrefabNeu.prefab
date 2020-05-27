@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disctanceToHurdle: 1.5
-  destroyEffect: {fileID: 4991168972592676576, guid: bd85ebc89464e61459a84d42b1bddeb0,
+  destroyEffect: {fileID: 172641376263673294, guid: 92f676d9f4dd59349975e6c8430a5edf,
     type: 3}
 --- !u!65 &2742509828841218433
 BoxCollider:
