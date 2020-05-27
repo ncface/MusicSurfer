@@ -243,7 +243,7 @@
             "Track": "piano-a",
             "Lane": 2,
             "Layer": 0,
-            "HurdleBehind": true,
+            "HurdleBehind": false,
             "HurdleBehindType": 0,
             "DistanceToHurdle": 2
         }
