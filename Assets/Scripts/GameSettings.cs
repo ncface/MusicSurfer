@@ -30,6 +30,8 @@ public class GameSettings : MonoBehaviour
 
     public GameObject chordPrefab;
     public GameObject player;
+    public GameObject hurdle;
+    public GameObject passingCheck;
     public List<GameObject> obstaclePrefabs;
 
     public List<GameObject> lanes; // includes all lanes where the player can run

@@ -8,8 +8,14 @@ public class Hurdle : MonoBehaviour
     {
         if (other.tag == GameSettings.Instance.player.tag)
         {
-            
-            if (transform.position.z - transform.lossyScale.z / 2 >= other.transform.position.z)
+            if (tag == GameSettings.Instance.hurdle.tag)
+            {
+                //bei hindernisen nur mit dem vorderen teil kollidieren
+                if (transform.position.z - transform.lossyScale.z / 2 >= other.transform.position.z)
+                {
+                    other.GetComponent<Player>().collision();
+                }
+            } else
             {
                 other.GetComponent<Player>().collision();
             }
