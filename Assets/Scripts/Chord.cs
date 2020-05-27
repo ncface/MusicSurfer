@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class Chord : MonoBehaviour
 {
     public float disctanceToHurdle;
+
+    public ParticleSystem destroyEffect;
 
     public void Start()
     {
@@ -53,10 +56,20 @@ public class Chord : MonoBehaviour
             {
                 child.GetComponent<Renderer>().enabled = false;
                 child.GetComponent<Collider>().enabled = false;
+                spawnDestroyEffect(child.transform);
             }
         }
 
         //müssen wir überhaupt zerstören?
         //Destroy(gameObject, 2);
+    }
+
+    private void spawnDestroyEffect(Transform spawnTransform)
+    {
+        Vector3 spawnPosition = new Vector3(spawnTransform.position.x, spawnTransform.position.y, spawnTransform.position.z);
+        GameObject effect = Instantiate(destroyEffect.gameObject, spawnPosition, Quaternion.identity);
+        MainModule mm = effect.GetComponent<ParticleSystem>().main;
+        mm.startColor = this.gameObject.GetComponent<Renderer>().material.color;
+        Destroy(effect, destroyEffect.main.startLifetime.constant); // destroys effect after liftetime
     }
 }
