@@ -12,6 +12,7 @@ public class SongEngine : MonoBehaviour
     public void Start()
     {
         Song song = LoadSong(songFolder);
+        setEnvironmentLenght(song);
         instantiateBackgroundTrack(song);
         instantiateChords(song);
         instantiateObstacles(song);
@@ -46,8 +47,11 @@ public class SongEngine : MonoBehaviour
 
             float zOffset = chord.Time / 10;
             float zPos = lane.transform.position.z + zOffset;
+            //float zPos = zOffset;
             float xPos = lane.transform.position.x;
+            //float xPos = 0;
             float yPos = lane.transform.position.y + 0.5f;
+            //float yPos = 0 + 0.5f;
             Vector3 position = new Vector3(xPos, yPos, zPos);
 
             //insantiate chord as game object
@@ -80,8 +84,11 @@ public class SongEngine : MonoBehaviour
 
             float zOffset = obstacle.Time / 10;
             float zPos = lane.transform.position.z + zOffset;
+            //float zPos = zOffset;
             float xPos = lane.transform.position.x;
+            //float xPos = 0;
             float yPos = lane.transform.position.y;
+            //float yPos = 0;
             Vector3 position = new Vector3(xPos, yPos, zPos);
 
             //insantiate chord as game object
@@ -99,5 +106,22 @@ public class SongEngine : MonoBehaviour
 
         //set Environment as Parent
         finish.transform.parent = GameSettings.Instance.lanes[0].transform.parent.transform.parent;
+    }
+
+    private void setEnvironmentLenght(Song song)
+    {
+        int additionalLength = 50;
+        int length = (song.Finish / 10) + additionalLength;
+        
+        GameObject LanesObjects = GameSettings.Instance.LanesObjects;
+        for (int i = 0; i < LanesObjects.transform.childCount; i++)
+        {
+            //set length
+            Transform lane = LanesObjects.transform.GetChild(i);
+            Vector3 newLocalScale = new Vector3(lane.localScale.x, lane.localScale.y, (length)*2);
+            lane.localScale = newLocalScale;
+        }
+        //spawn siderails
+        LanesObjects.GetComponent<FloorTexture>().createFloor(length);
     }
 }
