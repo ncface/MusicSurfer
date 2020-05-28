@@ -1,21 +1,21 @@
 {
     "BackgroundTrack": "background",
-    "Finish":  2000,
+    "Finish":  20000,
     "Obstacles": [
         {
-            "Time": "100",
+            "Time": "1000",
             "Type": 0,
             "Lane": 1,
             "Layer":  0
         },
         {
-            "Time": "200",
+            "Time": "2000",
             "Type": 0,
             "Lane": 0,
             "Layer": 0
         },
         {
-            "Time": "300",
+            "Time": "3000",
             "Type": 0,
             "Lane": 1,
             "Layer": 0
@@ -23,7 +23,7 @@
     ],
     "Chords": [
         {
-            "Time": "100",
+            "Time": "1000",
             "Track": "piano-a",
             "Lane": 2,
             "Layer": 0,
@@ -32,7 +32,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "200",
+            "Time": "2000",
             "Track": "piano-b",
             "Lane": 1,
             "Layer": 0,
@@ -41,7 +41,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "300",
+            "Time": "3000",
             "Track": "piano-c",
             "Lane": 0,
             "Layer": 0,
@@ -50,7 +50,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "400",
+            "Time": "4000",
             "Track": "piano-d",
             "Lane": 1,
             "Layer": 0,
@@ -59,7 +59,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "500",
+            "Time": "5000",
             "Track": "piano-e",
             "Lane": 2,
             "Layer": 0,
@@ -68,7 +68,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "600",
+            "Time": "6000",
             "Track": "piano-e",
             "Lane": 1,
             "Layer": 0,
@@ -77,7 +77,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "700",
+            "Time": "7000",
             "Track": "piano-f",
             "Lane": 0,
             "Layer": 0,
@@ -86,7 +86,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "750",
+            "Time": "7500",
             "Track": "piano-f",
             "Lane": 1,
             "Layer": 0,
@@ -95,7 +95,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "800",
+            "Time": "8000",
             "Track": "piano-f",
             "Lane": 2,
             "Layer": 0,
@@ -104,7 +104,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "850",
+            "Time": "8500",
             "Track": "piano-f",
             "Lane": 1,
             "Layer": 0,
@@ -113,7 +113,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "900",
+            "Time": "9000",
             "Track": "piano-e",
             "Lane": 0,
             "Layer": 0,
@@ -122,7 +122,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1000",
+            "Time": "10000",
             "Track": "piano-f",
             "Lane": 2,
             "Layer": 0,
@@ -131,7 +131,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1050",
+            "Time": "10500",
             "Track": "piano-f",
             "Lane": 1,
             "Layer": 0,
@@ -140,7 +140,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1100",
+            "Time": "11000",
             "Track": "piano-f",
             "Lane": 0,
             "Layer": 0,
@@ -149,7 +149,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1150",
+            "Time": "11500",
             "Track": "piano-f",
             "Lane": 1,
             "Layer": 0,
@@ -158,7 +158,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1200",
+            "Time": "12000",
             "Track": "piano-e",
             "Lane": 0,
             "Layer": 0,
@@ -167,7 +167,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1300",
+            "Time": "13000",
             "Track": "piano-d",
             "Lane": 1,
             "Layer": 0,
@@ -176,7 +176,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1350",
+            "Time": "13500",
             "Track": "piano-d",
             "Lane": 2,
             "Layer": 0,
@@ -185,7 +185,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1400",
+            "Time": "14000",
             "Track": "piano-d",
             "Lane": 0,
             "Layer": 0,
@@ -194,7 +194,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1500",
+            "Time": "15000",
             "Track": "piano-d",
             "Lane": 1,
             "Layer": 0,
@@ -203,7 +203,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1600",
+            "Time": "16000",
             "Track": "piano-c",
             "Lane": 2,
             "Layer": 0,
@@ -212,7 +212,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1650",
+            "Time": "16500",
             "Track": "piano-c",
             "Lane": 1,
             "Layer": 0,
@@ -221,7 +221,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1700",
+            "Time": "17000",
             "Track": "piano-b",
             "Lane": 0,
             "Layer": 0,
@@ -230,7 +230,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1750",
+            "Time": "17500",
             "Track": "piano-b",
             "Lane": 1,
             "Layer": 0,
@@ -239,7 +239,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1800",
+            "Time": "18000",
             "Track": "piano-b",
             "Lane": 2,
             "Layer": 0,
@@ -248,7 +248,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1850",
+            "Time": "18500",
             "Track": "piano-b",
             "Lane": 1,
             "Layer": 0,
@@ -257,7 +257,7 @@
             "DistanceToHurdle": 2
         },
         {
-            "Time": "1900",
+            "Time": "19000",
             "Track": "piano-a",
             "Lane": 0,
             "Layer": 0,
