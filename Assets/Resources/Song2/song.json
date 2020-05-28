@@ -4,38 +4,38 @@
     "Finish":  16800,
     "Obstacles": [
         {
-            "Time": "1900",
+            "Time": "2000",
             "Type": 0,
             "Lane": 0,
             "Layer": 1
         },
         {
-            "Time": "1900",
+            "Time": "2000",
             "Type": 0,
             "Lane": 1,
             "Layer": 1
         },
         {
-            "Time": "1900",
+            "Time": "2000",
             "Type": 0,
             "Lane": 2,
             "Layer": 1
         },
 
         {
-            "Time": "12700",
+            "Time": "12900",
             "Type": 0,
             "Lane": 0,
             "Layer": 1
         },
         {
-            "Time": "12700",
+            "Time": "12900",
             "Type": 0,
             "Lane": 1,
             "Layer": 1
         },
         {
-            "Time": "12700",
+            "Time": "12900",
             "Type": 0,
             "Lane": 2,
             "Layer": 1
