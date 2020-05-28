@@ -97,6 +97,20 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.C) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost) // slide
+        {
+            CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
+            collider.height = 1f;
+            collider.center = new Vector3(0, -0.55f, 0);
+        } else if (Input.GetKeyUp(KeyCode.C) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost)
+        {
+            CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
+            collider.height = 1.8f;
+            collider.center = new Vector3(0, -0.15f, 0);
+        }
+
+
+
         if (Input.GetButtonDown("Jump") && isGrounded && GameManager.Instance.IsGameStarted)
         {
             rb.AddForce(new Vector3(0, jump_Speed, 0), ForceMode.Impulse);
