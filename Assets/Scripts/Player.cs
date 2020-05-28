@@ -46,10 +46,10 @@ public class Player : MonoBehaviour
             isGrounded = !isGrounded;
             if(isGrounded)
             {
-                landing();
+                Landing();
             } else
             {
-                takeoff();
+                TakeOff();
             }
         }
 
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.A)) // move left
+        if (Input.GetKeyDown(KeyCode.A) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost) // move left
         {
             if(activeLane != lanes.ElementAt(0))
             {
@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.D)) // move right
+        if (Input.GetKeyDown(KeyCode.D) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost) // move right
         {
             if (activeLane != lanes.ElementAt(lanes.Count - 1))
             {
@@ -100,6 +100,18 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.C) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost) // slide
+        {
+            InitSlide();
+
+        }
+        else if (Input.GetKeyUp(KeyCode.C) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost)
+        {
+            ResetSlide();
+        }
+
+
+
         if (Input.GetButtonDown("Jump") && isGrounded && GameManager.Instance.IsGameStarted)
         {
             rb.AddForce(new Vector3(0, jump_Speed, 0), ForceMode.Impulse);
@@ -110,8 +122,40 @@ public class Player : MonoBehaviour
         transform.position += move * Time.deltaTime;
         transform.rotation = Quaternion.identity; // blocks the rotation of the player
     }
-    
-    private void landing()
+
+    private void ResetSlide()
+    {
+        // reset player collider
+        CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
+        collider.height = 1.8f;
+        collider.center = new Vector3(0, -0.15f, 0);
+
+        // reset animation player position
+        // wierd setting - depends on the parent player?
+        animationCharacter.transform.position = new Vector3(transform.position.x, 0.15f, transform.position.z);
+        animationCharacter.transform.Rotate(90, 0, 0);
+
+        if (GameManager.Instance.IsGameStarted)
+        {
+            animationCharacter.GetComponent<PersonAnimation>().run();
+        }
+    }
+
+    private void InitSlide()
+    {
+        // shrink player collider
+        CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
+        collider.height = 1f;
+        collider.center = new Vector3(0, -0.55f, 0);
+        animationCharacter.GetComponent<PersonAnimation>().idle();
+
+        // adapt animation player position
+        // wierd setting - depends on the parent player?
+        animationCharacter.transform.position = new Vector3(transform.position.x, 0.40f, transform.position.z + 0.9f);
+        animationCharacter.transform.Rotate(-90, 0, 0);
+    }
+
+    private void Landing()
     {
         if (GameManager.Instance.IsGameStarted)
         {
@@ -124,25 +168,22 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void takeoff()
+    private void TakeOff()
     {
         move -= new Vector3(0, 0, GameSettings.Instance.jumpSlowdown);
     }
 
-    public void collision()
+    public void Collision()
     {
         move = Vector3.zero;
         animationCharacter.GetComponent<PersonAnimation>().idle();
         GameManager.Instance.GameOver();
     }
 
-    public void win()
+    public void Win()
     {
         move = Vector3.zero;
-        float x = transform.position.x;
-        float y = 1.16f;
-        float z = transform.position.z;
-        transform.position = new Vector3(x, y, z);
+        ResetSlide();
         animationCharacter.GetComponent<PersonAnimation>().win();
         rb.velocity = new Vector3(0,0,0);
         watch.Stop();
