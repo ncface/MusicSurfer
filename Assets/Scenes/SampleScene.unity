@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 080fc113abd61e14b8bd8d689fe05f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  songFolder: Song1/
+  songFolder: Song2/
 --- !u!4 &627455033
 Transform:
   m_ObjectHideFlags: 0

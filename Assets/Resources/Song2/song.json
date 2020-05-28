@@ -1,0 +1,226 @@
+{
+    "BackgroundTrack": "BackgroundAlt",
+    "ChordsOffset": 1400,
+    "Finish":  17000,
+    "Obstacles": [
+        
+    ],
+    "Chords": [
+        {
+            "Time": "034",
+            "Track": "H real",
+            "Lane": 2,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "665",
+            "Track": "Fis",
+            "Lane": 1,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "1205",
+            "Track": "E",
+            "Lane": 0,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "2287",
+            "Track": "G",
+            "Lane": 1,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "2873",
+            "Track": "Fis",
+            "Lane": 2,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "3416",
+            "Track": "E",
+            "Lane": 1,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "4499",
+            "Track": "H real",
+            "Lane": 0,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "5000",
+            "Track": "Fis",
+            "Lane": 1,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "5833",
+            "Track": "Fis",
+            "Lane": 2,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "6416",
+            "Track": "G",
+            "Lane": 1,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "7499",
+            "Track": "H lang real",
+            "Lane": 0,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "8000",
+            "Track": "H lang real",
+            "Lane": 2,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "8624",
+            "Track": "H lang real",
+            "Lane": 1,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "9416",
+            "Track": "H real",
+            "Lane": 0,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "9999",
+            "Track": "C2",
+            "Lane": 1,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "11000",
+            "Track": "E2",
+            "Lane": 0,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "11583",
+            "Track": "C2",
+            "Lane": 1,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "12041",
+            "Track": "H real",
+            "Lane": 2,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "13208",
+            "Track": "H real",
+            "Lane": 0,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "13708",
+            "Track": "G",
+            "Lane": 1,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "14000",
+            "Track": "Fis lang",
+            "Lane": 2,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "14541",
+            "Track": "H ende",
+            "Lane": 1,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "15666",
+            "Track": "Fis lang",
+            "Lane": 0,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "16205",
+            "Track": "E ende",
+            "Lane": 1,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        }
+    ]
+}

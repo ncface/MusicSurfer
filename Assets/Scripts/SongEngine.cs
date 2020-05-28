@@ -48,7 +48,7 @@ public class SongEngine : MonoBehaviour
             float xPos = lane.transform.position.x;
             float layer = chord.Layer * chord.prefab.transform.localScale.y;
             float yPos = lane.transform.position.y + 0.5f + layer;
-            float zOffset = chord.Time / 10;
+            float zOffset = chord.Time / 100 + song.ChordsOffset / 1000;
             float zPos = lane.transform.position.z + zOffset;
 
             Vector3 position = new Vector3(xPos, yPos, zPos);
@@ -84,7 +84,7 @@ public class SongEngine : MonoBehaviour
             float xPos = lane.transform.position.x;
             float layer = obstacle.Layer * obstacle.prefab.transform.localScale.y;
             float yPos = lane.transform.position.y + 0.5f + layer;
-            float zOffset = obstacle.Time / 10;
+            float zOffset = obstacle.Time / 100;
             float zPos = lane.transform.position.z + zOffset;
 
             Vector3 position = new Vector3(xPos, yPos, zPos);
@@ -99,7 +99,7 @@ public class SongEngine : MonoBehaviour
 
     private void instantiateFinish(Song song)
     {
-        Vector3 position = new Vector3(0, 0, song.Finish / 10);
+        Vector3 position = new Vector3(0, 0, song.Finish / 100);
         GameObject finish = Instantiate(GameSettings.Instance.finishPrefab, position, Quaternion.identity);
 
         //set Environment as Parent
@@ -109,7 +109,7 @@ public class SongEngine : MonoBehaviour
     private void setEnvironmentLenght(Song song)
     {
         int additionalLength = 50;
-        int length = (song.Finish / 10) + additionalLength;
+        int length = (song.Finish / 100) + additionalLength;
         
         GameObject LanesObjects = GameSettings.Instance.LanesObjects;
         for (int i = 0; i < LanesObjects.transform.childCount; i++)

@@ -10,6 +10,7 @@ public class Song
     public int Finish;
     public Chord[] Chords;
     public Obstacle[] Obstacles;
+    public int ChordsOffset;
 
     [NonSerialized]
     public AudioClip BackgroundTrackAudio;
