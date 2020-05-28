@@ -53,19 +53,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &8017632059678829673
-MonoBehaviour:
+--- !u!95 &4831260110572678848
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508823120405627179}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cb092f2198e94f479050e889badd5b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  noteAnimator: {fileID: 9100000, guid: f27f464558dae5c4f89a3ca7dfd596af, type: 2}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f27f464558dae5c4f89a3ca7dfd596af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5506443644651533298
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,6 +122,8 @@ MonoBehaviour:
   destroyEffect: {fileID: 8330972797161461427, guid: f3094d75e4b9c5c47a513635ebe4bf06,
     type: 3}
   musicSymbol: {fileID: 2505122118795141879}
+  moveMusicSymbolAnimation: {fileID: 9100000, guid: f27f464558dae5c4f89a3ca7dfd596af,
+    type: 2}
 --- !u!65 &2742509828841218433
 BoxCollider:
   m_ObjectHideFlags: 0
