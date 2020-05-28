@@ -51,10 +51,17 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (!GameManager.Instance.IsGameStarted && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost)
+        if (GameManager.Instance.IsGameStarted)
+        {
+            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        } 
+        else
         {
             rb.velocity = new Vector3(0, 0, 0);
-            
+        }
+
+        if (!GameManager.Instance.IsGameStarted && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost)
+        {
             if (Input.GetMouseButtonDown(0)) // press mouse button to start the game
             {
                 move = new Vector3(0, 0, run_Speed); // init velocity, like addForce

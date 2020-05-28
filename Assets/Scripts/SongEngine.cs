@@ -45,13 +45,12 @@ public class SongEngine : MonoBehaviour
         {
             GameObject lane = GameSettings.Instance.lanes[chord.Lane];
 
+            float xPos = lane.transform.position.x;
+            float layer = chord.Layer * chord.prefab.transform.localScale.y;
+            float yPos = lane.transform.position.y + 0.5f + layer;
             float zOffset = chord.Time / 10;
             float zPos = lane.transform.position.z + zOffset;
-            //float zPos = zOffset;
-            float xPos = lane.transform.position.x;
-            //float xPos = 0;
-            float yPos = lane.transform.position.y + 0.5f;
-            //float yPos = 0 + 0.5f;
+
             Vector3 position = new Vector3(xPos, yPos, zPos);
 
             //insantiate chord as game object
@@ -82,13 +81,12 @@ public class SongEngine : MonoBehaviour
         {
             GameObject lane = GameSettings.Instance.lanes[obstacle.Lane];
 
+            float xPos = lane.transform.position.x;
+            float layer = obstacle.Layer * obstacle.prefab.transform.localScale.y;
+            float yPos = lane.transform.position.y + 0.5f + layer;
             float zOffset = obstacle.Time / 10;
             float zPos = lane.transform.position.z + zOffset;
-            //float zPos = zOffset;
-            float xPos = lane.transform.position.x;
-            //float xPos = 0;
-            float yPos = lane.transform.position.y;
-            //float yPos = 0;
+
             Vector3 position = new Vector3(xPos, yPos, zPos);
 
             //insantiate chord as game object

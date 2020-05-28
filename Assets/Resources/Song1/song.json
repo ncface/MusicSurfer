@@ -38,7 +38,7 @@
             "Layer": 0,
             "HurdleBehind": true,
             "HurdleBehindType": 0,
-            "DistanceToHurdle":  2
+            "DistanceToHurdle": 2
         },
         {
             "Time": "300",
@@ -230,7 +230,25 @@
             "DistanceToHurdle": 2
         },
         {
+            "Time": "1750",
+            "Track": "piano-b",
+            "Lane": 1,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
             "Time": "1800",
+            "Track": "piano-b",
+            "Lane": 2,
+            "Layer": 0,
+            "HurdleBehind": true,
+            "HurdleBehindType": 0,
+            "DistanceToHurdle": 2
+        },
+        {
+            "Time": "1850",
             "Track": "piano-b",
             "Lane": 1,
             "Layer": 0,
@@ -241,12 +259,12 @@
         {
             "Time": "1900",
             "Track": "piano-a",
-            "Lane": 2,
+            "Lane": 0,
             "Layer": 0,
             "HurdleBehind": false,
             "HurdleBehindType": 0,
             "DistanceToHurdle": 2
         }
-        
+
     ]
 }

@@ -86,6 +86,7 @@ public class Song
         public int Time;
         public int Type;
         public int Lane;
+        public int Layer;
 
         [NonSerialized]
         public GameObject prefab;
