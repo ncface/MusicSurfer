@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
 
     private bool isGrounded = true;
+    private bool isSliding = false;
     private float groundDistance = 0.4f;
 
     // Start is called before the first frame update
@@ -122,34 +123,44 @@ public class Player : MonoBehaviour
 
     private void ResetSlide()
     {
-        // reset player collider
-        CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
-        collider.height = 1.8f;
-        collider.center = new Vector3(0, -0.15f, 0);
-
-        // reset animation player position
-        // wierd setting - depends on the parent player?
-        animationCharacter.transform.position = new Vector3(transform.position.x, 0.15f, transform.position.z);
-        animationCharacter.transform.Rotate(90, 0, 0);
-
-        if (GameManager.Instance.IsGameStarted)
+        if (isSliding)
         {
-            animationCharacter.GetComponent<PersonAnimation>().run();
+            isSliding = false;
+
+            // reset player collider
+            CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
+            collider.height = 1.8f;
+            collider.center = new Vector3(0, -0.15f, 0);
+
+            // reset animation player position
+            // wierd setting - depends on the parent player?
+            animationCharacter.transform.position = new Vector3(transform.position.x, 0.15f, transform.position.z);
+            animationCharacter.transform.Rotate(90, 0, 0);
+
+            if (GameManager.Instance.IsGameStarted)
+            {
+                animationCharacter.GetComponent<PersonAnimation>().run();
+            }
         }
     }
 
     private void InitSlide()
     {
-        // shrink player collider
-        CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
-        collider.height = 1f;
-        collider.center = new Vector3(0, -0.55f, 0);
-        animationCharacter.GetComponent<PersonAnimation>().idle();
+        if (!isSliding)
+        {
+            // shrink player collider
+            CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
+            collider.height = 1f;
+            collider.center = new Vector3(0, -0.55f, 0);
+            animationCharacter.GetComponent<PersonAnimation>().idle();
 
-        // adapt animation player position
-        // wierd setting - depends on the parent player?
-        animationCharacter.transform.position = new Vector3(transform.position.x, 0.40f, transform.position.z + 0.9f);
-        animationCharacter.transform.Rotate(-90, 0, 0);
+            // adapt animation player position
+            // wierd setting - depends on the parent player?
+            animationCharacter.transform.position = new Vector3(transform.position.x, 0.40f, transform.position.z + 0.9f);
+            animationCharacter.transform.Rotate(-90, 0, 0);
+
+            isSliding = true;
+        }
     }
 
     private void Landing()
