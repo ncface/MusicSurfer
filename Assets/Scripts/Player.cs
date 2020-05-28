@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.A)) // move left
+        if (Input.GetKeyDown(KeyCode.A) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost) // move left
         {
             if(activeLane != lanes.ElementAt(0))
             {
@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.D)) // move right
+        if (Input.GetKeyDown(KeyCode.D) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost) // move right
         {
             if (activeLane != lanes.ElementAt(lanes.Count - 1))
             {
