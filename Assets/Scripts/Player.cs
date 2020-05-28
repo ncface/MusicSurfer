@@ -102,11 +102,27 @@ public class Player : MonoBehaviour
             CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
             collider.height = 1f;
             collider.center = new Vector3(0, -0.55f, 0);
+            animationCharacter.GetComponent<PersonAnimation>().idle();
+
+            // wierd setting - depends on the parent player
+            animationCharacter.transform.position = new Vector3(0, 0.40f, 0.9f);
+            animationCharacter.transform.Rotate(-90, 0, 0);
+
         } else if (Input.GetKeyUp(KeyCode.C) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost)
         {
             CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
             collider.height = 1.8f;
             collider.center = new Vector3(0, -0.15f, 0);
+
+            // wierd setting - depends on the parent player
+            animationCharacter.transform.position = new Vector3(0, 0.15f, 0);
+            animationCharacter.transform.Rotate(90, 0, 0);
+
+            if (GameManager.Instance.IsGameStarted)
+            {
+                animationCharacter.GetComponent<PersonAnimation>().run();
+            }
+            
         }
 
 
