@@ -13,11 +13,11 @@ public class Hurdle : MonoBehaviour
                 //bei hindernisen nur mit dem vorderen teil kollidieren
                 if (transform.position.z - transform.lossyScale.z / 2 >= other.transform.position.z)
                 {
-                    other.GetComponent<Player>().collision();
+                    other.GetComponent<Player>().Collision();
                 }
             } else
             {
-                other.GetComponent<Player>().collision();
+                other.GetComponent<Player>().Collision();
             }
         }
     }

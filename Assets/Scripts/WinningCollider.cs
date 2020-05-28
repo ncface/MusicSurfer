@@ -10,7 +10,7 @@ public class WinningCollider : MonoBehaviour
     {
         if (other.tag == GameSettings.Instance.player.tag)
         {
-            other.GetComponent<Player>().win();
+            other.GetComponent<Player>().Win();
 
             //starte feuerwerk
             Instantiate(dancingPeople,new Vector3(0,0.2f,(other.transform.position.z + 3)), Quaternion.identity);
