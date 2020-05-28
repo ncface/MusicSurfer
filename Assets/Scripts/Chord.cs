@@ -34,11 +34,11 @@ public class Chord : MonoBehaviour
     {
         if (other.tag == GameSettings.Instance.player.tag)
         {
-            hit();
+            Hit();
         }
     }
 
-    public void hit()
+    public void Hit()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -50,30 +50,28 @@ public class Chord : MonoBehaviour
         }
         //start audio
         GetComponent<AudioSource>().Play();
-
+        
         //make chord object invisible
         for (int i = 0; i < transform.childCount; i++)
         {
             GameObject child = transform.GetChild(i).gameObject;
             if (child.tag == "Chord")
             {
-                child.GetComponent<Renderer>().enabled = false;
-                child.GetComponent<Collider>().enabled = false;
+                foreach(Renderer renderer in child.GetComponentsInChildren<Renderer>())
+                {
+                    renderer.enabled = false;
+                }
+                foreach (Collider collider in child.GetComponentsInChildren<Collider>())
+                {
+                    collider.enabled = false;
+                }
 
-                spawnDestroyEffect(child);
-
-                // separate for the music symbol, should be accessed through the hierarchy
-                musicSymbol.GetComponent<Renderer>().enabled = false;
-                musicSymbol.GetComponent<Collider>().enabled = false;
-                
+                SpawnDestroyEffect(child);
             }
         }
-
-        //müssen wir überhaupt zerstören?
-        //Destroy(gameObject, 2);
     }
 
-    private void spawnDestroyEffect(GameObject child)
+    private void SpawnDestroyEffect(GameObject child)
     {
         Transform spawnTransform = child.transform;
         Vector3 spawnPosition = new Vector3(spawnTransform.position.x, spawnTransform.position.y, spawnTransform.position.z);
