@@ -10,9 +10,11 @@ public class Chord : MonoBehaviour
 
     public ParticleSystem destroyEffect;
 
+    public GameObject musicSymbol;
+
     public void Start()
     {
-        for(int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < transform.childCount; i++)
         {
             GameObject child = transform.GetChild(i).gameObject;
             if (child.tag == "Hurdle")
@@ -57,7 +59,13 @@ public class Chord : MonoBehaviour
             {
                 child.GetComponent<Renderer>().enabled = false;
                 child.GetComponent<Collider>().enabled = false;
+
                 spawnDestroyEffect(child);
+
+                // separate for the music symbol, should be accessed through the hierarchy
+                musicSymbol.GetComponent<Renderer>().enabled = false;
+                musicSymbol.GetComponent<Collider>().enabled = false;
+                
             }
         }
 
