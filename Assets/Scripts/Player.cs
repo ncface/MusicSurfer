@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
 
     private bool isGrounded = true;
+    private bool isSliding = false;
     private float groundDistance = 0.4f;
 
     // Start is called before the first frame update
@@ -72,28 +73,36 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost) // move left
         {
-            if(activeLane != lanes.ElementAt(0))
+            //check if obstacle
+            Vector3 positionOfRayOrigin = transform.position + new Vector3(0, -0.5f, 0);
+            Ray ray = new Ray(positionOfRayOrigin, new Vector3(-1,0,0));
+            RaycastHit hits;
+            bool obstacleAtLeft = Physics.Raycast(ray, out hits, 2f)
+                    && hits.transform.tag == GameSettings.Instance.obstaclePrefabs[0].tag;
+            if (!obstacleAtLeft
+                && activeLane != lanes.ElementAt(0))
             {
                 current_Lane--;
                 activeLane = lanes.ElementAt(current_Lane);
                 transform.position = new Vector3(activeLane.transform.position.x, transform.position.y, transform.position.z);
-            } else
-            {
-                // Debug.Log("Border lane of the left side already reached");
             }
+            
         }
 
         if (Input.GetKeyDown(KeyCode.D) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost) // move right
         {
-            if (activeLane != lanes.ElementAt(lanes.Count - 1))
+            //check if obstacle
+            Vector3 positionOfRayOrigin = transform.position + new Vector3(0, -0.5f, 0);
+            Ray ray = new Ray(positionOfRayOrigin, new Vector3(1, 0, 0));
+            RaycastHit hits;
+            bool obstacleAtRight = Physics.Raycast(ray, out hits, 2f)
+                    && hits.transform.tag == GameSettings.Instance.obstaclePrefabs[0].tag;
+            if (!obstacleAtRight
+                && activeLane != lanes.ElementAt(lanes.Count - 1))
             {
                 current_Lane++;
                 activeLane = lanes.ElementAt(current_Lane);
                 transform.position = new Vector3(activeLane.transform.position.x, transform.position.y, transform.position.z);
-            }
-            else
-            {
-                // Debug.Log("Border lane of the left right already reached");
             }
         }
 
@@ -122,34 +131,44 @@ public class Player : MonoBehaviour
 
     private void ResetSlide()
     {
-        // reset player collider
-        CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
-        collider.height = 1.8f;
-        collider.center = new Vector3(0, -0.15f, 0);
-
-        // reset animation player position
-        // wierd setting - depends on the parent player?
-        animationCharacter.transform.position = new Vector3(transform.position.x, 0.15f, transform.position.z);
-        animationCharacter.transform.Rotate(90, 0, 0);
-
-        if (GameManager.Instance.IsGameStarted)
+        if (isSliding)
         {
-            animationCharacter.GetComponent<PersonAnimation>().run();
+            isSliding = false;
+
+            // reset player collider
+            CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
+            collider.height = 1.8f;
+            collider.center = new Vector3(0, -0.15f, 0);
+            
+            // reset animation player position
+            // wierd setting - depends on the parent player?
+            animationCharacter.transform.position = new Vector3(transform.position.x, 0.15f, transform.position.z);
+            animationCharacter.transform.Rotate(90, 0, 0);
+
+            if (GameManager.Instance.IsGameStarted)
+            {
+                animationCharacter.GetComponent<PersonAnimation>().run();
+            }
         }
     }
 
     private void InitSlide()
     {
-        // shrink player collider
-        CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
-        collider.height = 1f;
-        collider.center = new Vector3(0, -0.55f, 0);
-        animationCharacter.GetComponent<PersonAnimation>().idle();
+        if (!isSliding)
+        {
+            // shrink player collider
+            CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
+            collider.height = 0f;
+            collider.center = new Vector3(0, -0.8f, 0);
+            animationCharacter.GetComponent<PersonAnimation>().idle();
 
-        // adapt animation player position
-        // wierd setting - depends on the parent player?
-        animationCharacter.transform.position = new Vector3(transform.position.x, 0.40f, transform.position.z + 0.9f);
-        animationCharacter.transform.Rotate(-90, 0, 0);
+            // adapt animation player position
+            // wierd setting - depends on the parent player?
+            animationCharacter.transform.position = new Vector3(transform.position.x, 0.40f, transform.position.z + 0.9f);
+            animationCharacter.transform.Rotate(-90, 0, 0);
+
+            isSliding = true;
+        }
     }
 
     private void Landing()
@@ -157,12 +176,12 @@ public class Player : MonoBehaviour
         if (GameManager.Instance.IsGameStarted)
         {
             animationCharacter.GetComponent<PersonAnimation>().run();
+            move += new Vector3(0, 0, GameSettings.Instance.jumpSlowdown);
         }
-        else
+        else if(!(GameManager.Instance.IsGameWon || GameManager.Instance.IsGameLost))
         {
             animationCharacter.GetComponent<PersonAnimation>().idle();
         }
-        move += new Vector3(0, 0, GameSettings.Instance.jumpSlowdown);
     }
 
     private void TakeOff()
@@ -184,4 +203,5 @@ public class Player : MonoBehaviour
         animationCharacter.GetComponent<PersonAnimation>().win();
         rb.velocity = new Vector3(0,0,0);
     }
+
 }
