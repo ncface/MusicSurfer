@@ -99,23 +99,27 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost) // slide
         {
+            // shrink player collider
             CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
             collider.height = 1f;
             collider.center = new Vector3(0, -0.55f, 0);
             animationCharacter.GetComponent<PersonAnimation>().idle();
 
-            // wierd setting - depends on the parent player
-            animationCharacter.transform.position = new Vector3(transform.position.x, 0.40f, 0.9f);
+            // adapt animation player position
+            // wierd setting - depends on the parent player?
+            animationCharacter.transform.position = new Vector3(transform.position.x, 0.40f, transform.position.z + 0.9f);
             animationCharacter.transform.Rotate(-90, 0, 0);
 
         } else if (Input.GetKeyUp(KeyCode.C) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost)
         {
+            // reset player collider
             CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
             collider.height = 1.8f;
             collider.center = new Vector3(0, -0.15f, 0);
 
-            // wierd setting - depends on the parent player
-            animationCharacter.transform.position = new Vector3(transform.position.x, 0.15f, 0);
+            // reset animation player position
+            // wierd setting - depends on the parent player?
+            animationCharacter.transform.position = new Vector3(transform.position.x, 0.15f, transform.position.z);
             animationCharacter.transform.Rotate(90, 0, 0);
 
             if (GameManager.Instance.IsGameStarted)
