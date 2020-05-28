@@ -1,9 +1,45 @@
 {
     "BackgroundTrack": "BackgroundAlt",
     "ChordsOffset": 1350,
-    "Finish":  17000,
+    "Finish":  16800,
     "Obstacles": [
-        
+        {
+            "Time": "1900",
+            "Type": 0,
+            "Lane": 0,
+            "Layer": 1
+        },
+        {
+            "Time": "1900",
+            "Type": 0,
+            "Lane": 1,
+            "Layer": 1
+        },
+        {
+            "Time": "1900",
+            "Type": 0,
+            "Lane": 2,
+            "Layer": 1
+        },
+
+        {
+            "Time": "12700",
+            "Type": 0,
+            "Lane": 0,
+            "Layer": 1
+        },
+        {
+            "Time": "12700",
+            "Type": 0,
+            "Lane": 1,
+            "Layer": 1
+        },
+        {
+            "Time": "12700",
+            "Type": 0,
+            "Lane": 2,
+            "Layer": 1
+        }
     ],
     "Chords": [
         {
@@ -218,9 +254,7 @@
             "Track": "E ende",
             "Lane": 1,
             "Layer": 0,
-            "HurdleBehind": true,
-            "HurdleBehindType": 0,
-            "DistanceToHurdle": 2
+            "HurdleBehind": false
         }
     ]
 }

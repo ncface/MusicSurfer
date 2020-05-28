@@ -131,7 +131,7 @@ public class Player : MonoBehaviour
             CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
             collider.height = 1.8f;
             collider.center = new Vector3(0, -0.15f, 0);
-
+            
             // reset animation player position
             // wierd setting - depends on the parent player?
             animationCharacter.transform.position = new Vector3(transform.position.x, 0.15f, transform.position.z);
@@ -150,8 +150,8 @@ public class Player : MonoBehaviour
         {
             // shrink player collider
             CapsuleCollider collider = gameObject.GetComponent<CapsuleCollider>();
-            collider.height = 1f;
-            collider.center = new Vector3(0, -0.55f, 0);
+            collider.height = 0f;
+            collider.center = new Vector3(0, -0.8f, 0);
             animationCharacter.GetComponent<PersonAnimation>().idle();
 
             // adapt animation player position
