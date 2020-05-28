@@ -35,6 +35,9 @@ public class Player : MonoBehaviour
         jump_Speed = GameSettings.Instance.jumpSpeed;
         current_Lane = GameSettings.Instance.currentLane;
         activeLane = lanes.ElementAt(current_Lane); // init start lane position of the player
+
+        //mobile input handler
+        SwipeDetector.OnSwipe += MobileInputHandler;
     }
 
     // Update is called once per frame
@@ -60,58 +63,65 @@ public class Player : MonoBehaviour
         {
             rb.velocity = new Vector3(0, 0, 0);
         }
+        
+        CheckStandaloneInputs();
+        
+        transform.position += move * Time.deltaTime;
+        transform.rotation = Quaternion.identity; // blocks the rotation of the player
+    }
 
+    private void MobileInputHandler(SwipeData data)
+    {
+        if (GameManager.Instance.IsGameStarted)
+        {
+            switch (data.Direction)
+            {
+                case SwipeDirection.Left:
+                    MoveLeft();
+                    break;
+                case SwipeDirection.Right:
+                    MoveRight();
+                    break;
+                case SwipeDirection.Up:
+                    ResetSlide();
+                    break;
+                case SwipeDirection.Down:
+                    InitSlide();
+                    break;
+            }
+        } else
+        {
+            StartGame();
+        }
+    }
+
+    private void CheckStandaloneInputs()
+    {
         if (!GameManager.Instance.IsGameStarted && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost)
         {
-            if (Input.GetMouseButtonDown(0)) // press mouse button to start the game
+            if (Input.GetButtonDown("Start")) // press mouse button to start the game
             {
-                move = new Vector3(0, 0, run_Speed); // init velocity, like addForce
-                GameManager.Instance.startGame();
-                animationCharacter.GetComponent<PersonAnimation>().run();
+                StartGame();
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.A) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost) // move left
+        if (Input.GetButtonDown("HorizontalLeft") && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost) // move left
         {
-            //check if obstacle
-            Vector3 positionOfRayOrigin = transform.position + new Vector3(0, -0.5f, 0);
-            Ray ray = new Ray(positionOfRayOrigin, new Vector3(-1,0,0));
-            RaycastHit hits;
-            bool obstacleAtLeft = Physics.Raycast(ray, out hits, 2f)
-                    && hits.transform.tag == GameSettings.Instance.obstaclePrefabs[0].tag;
-            if (!obstacleAtLeft
-                && activeLane != lanes.ElementAt(0))
-            {
-                current_Lane--;
-                activeLane = lanes.ElementAt(current_Lane);
-                transform.position = new Vector3(activeLane.transform.position.x, transform.position.y, transform.position.z);
-            }
-            
+            MoveLeft();
+
         }
 
-        if (Input.GetKeyDown(KeyCode.D) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost) // move right
+        if (Input.GetButtonDown("HorizontalRight") && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost) // move right
         {
-            //check if obstacle
-            Vector3 positionOfRayOrigin = transform.position + new Vector3(0, -0.5f, 0);
-            Ray ray = new Ray(positionOfRayOrigin, new Vector3(1, 0, 0));
-            RaycastHit hits;
-            bool obstacleAtRight = Physics.Raycast(ray, out hits, 2f)
-                    && hits.transform.tag == GameSettings.Instance.obstaclePrefabs[0].tag;
-            if (!obstacleAtRight
-                && activeLane != lanes.ElementAt(lanes.Count - 1))
-            {
-                current_Lane++;
-                activeLane = lanes.ElementAt(current_Lane);
-                transform.position = new Vector3(activeLane.transform.position.x, transform.position.y, transform.position.z);
-            }
+            MoveRight();
         }
 
-        if (Input.GetKeyDown(KeyCode.C) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost) // slide
+        if (Input.GetButtonDown("Duck") && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost) // slide
         {
             InitSlide();
 
         }
-        else if (Input.GetKeyUp(KeyCode.C) && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost)
+        else if (Input.GetButtonUp("Duck") && !GameManager.Instance.IsGameWon && !GameManager.Instance.IsGameLost)
         {
             ResetSlide();
         }
@@ -124,10 +134,49 @@ public class Player : MonoBehaviour
 
             animationCharacter.GetComponent<PersonAnimation>().jump();
         }
-        
-        transform.position += move * Time.deltaTime;
-        transform.rotation = Quaternion.identity; // blocks the rotation of the player
     }
+
+    private void StartGame()
+    {
+        move = new Vector3(0, 0, run_Speed); // init velocity, like addForce
+        GameManager.Instance.startGame();
+        animationCharacter.GetComponent<PersonAnimation>().run();
+    }
+
+    private void MoveLeft()
+    {
+        //check if obstacle
+        Vector3 positionOfRayOrigin = transform.position + new Vector3(0, -0.5f, 0);
+        Ray ray = new Ray(positionOfRayOrigin, new Vector3(-1, 0, 0));
+        RaycastHit hits;
+        bool obstacleAtLeft = Physics.Raycast(ray, out hits, 2f)
+                && hits.transform.tag == GameSettings.Instance.obstaclePrefabs[0].tag;
+        if (!obstacleAtLeft
+            && activeLane != lanes.ElementAt(0))
+        {
+            current_Lane--;
+            activeLane = lanes.ElementAt(current_Lane);
+            transform.position = new Vector3(activeLane.transform.position.x, transform.position.y, transform.position.z);
+        }
+    }
+
+    private void MoveRight()
+    {
+        //check if obstacle
+        Vector3 positionOfRayOrigin = transform.position + new Vector3(0, -0.5f, 0);
+        Ray ray = new Ray(positionOfRayOrigin, new Vector3(1, 0, 0));
+        RaycastHit hits;
+        bool obstacleAtRight = Physics.Raycast(ray, out hits, 2f)
+                && hits.transform.tag == GameSettings.Instance.obstaclePrefabs[0].tag;
+        if (!obstacleAtRight
+            && activeLane != lanes.ElementAt(lanes.Count - 1))
+        {
+            current_Lane++;
+            activeLane = lanes.ElementAt(current_Lane);
+            transform.position = new Vector3(activeLane.transform.position.x, transform.position.y, transform.position.z);
+        }
+    }
+
 
     private void ResetSlide()
     {
