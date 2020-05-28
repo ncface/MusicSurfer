@@ -113,12 +113,12 @@ public class Player : MonoBehaviour
         if (GameManager.Instance.IsGameStarted)
         {
             animationCharacter.GetComponent<PersonAnimation>().run();
+            move += new Vector3(0, 0, GameSettings.Instance.jumpSlowdown);
         }
-        else
+        else if(!(GameManager.Instance.IsGameWon || GameManager.Instance.IsGameLost))
         {
             animationCharacter.GetComponent<PersonAnimation>().idle();
         }
-        move += new Vector3(0, 0, GameSettings.Instance.jumpSlowdown);
     }
 
     private void takeoff()
@@ -136,7 +136,12 @@ public class Player : MonoBehaviour
     public void win()
     {
         move = Vector3.zero;
+        float x = transform.position.x;
+        float y = 1.16f;
+        float z = transform.position.z;
+        transform.position = new Vector3(x, y, z);
         animationCharacter.GetComponent<PersonAnimation>().win();
         rb.velocity = new Vector3(0,0,0);
     }
+
 }
