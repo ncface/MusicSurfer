@@ -180,6 +180,7 @@ public class Player : MonoBehaviour
     public void Win()
     {
         move = Vector3.zero;
+        ResetSlide();
         animationCharacter.GetComponent<PersonAnimation>().win();
         rb.velocity = new Vector3(0,0,0);
     }
