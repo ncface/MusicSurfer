@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
 
     private bool isGrounded = true;
     private float groundDistance = 0.4f;
-    private System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +39,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(watch.ElapsedMilliseconds);
         if (isGrounded != Physics.CheckSphere(groundCheck.position, groundDistance, groundMask))
         {
             isGrounded = !isGrounded;
@@ -69,7 +67,6 @@ public class Player : MonoBehaviour
                 move = new Vector3(0, 0, run_Speed); // init velocity, like addForce
                 GameManager.Instance.startGame();
                 animationCharacter.GetComponent<PersonAnimation>().run();
-                watch.Start();
             }
         }
 
@@ -186,7 +183,6 @@ public class Player : MonoBehaviour
         ResetSlide();
         animationCharacter.GetComponent<PersonAnimation>().win();
         rb.velocity = new Vector3(0,0,0);
-        watch.Stop();
     }
 
 }
