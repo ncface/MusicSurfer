@@ -10,6 +10,8 @@ public class Chord : MonoBehaviour
 
     public ParticleSystem destroyEffect;
 
+    public GameObject musicSymbol;
+
     public void Start()
     {
         for(int i = 0; i < transform.childCount; i++)
@@ -57,7 +59,13 @@ public class Chord : MonoBehaviour
             {
                 child.GetComponent<Renderer>().enabled = false;
                 child.GetComponent<Collider>().enabled = false;
+
                 spawnDestroyEffect(child);
+
+                // separate for the music symbol
+                musicSymbol.GetComponent<Renderer>().enabled = false;
+                musicSymbol.GetComponent<Collider>().enabled = false;
+                
             }
         }
 
