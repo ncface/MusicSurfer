@@ -91,7 +91,18 @@ public class Player : MonoBehaviour
             }
         } else
         {
-            StartGame();
+            switch (data.Direction)
+            {
+                case SwipeDirection.Left:
+                    MoveLeft();
+                    break;
+                case SwipeDirection.Right:
+                    MoveRight();
+                    break;
+                default:
+                    StartGame();
+                    break;
+            }
         }
     }
 
