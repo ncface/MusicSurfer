@@ -21,7 +21,9 @@ public class SongEngine : MonoBehaviour
 
     private Song LoadSong(string songFolder)
     {
-        string jsonString = File.ReadAllText("Assets/Resources/" + songFolder + "song.json");
+        //string jsonString = File.ReadAllText("Assets/Resources/" + songFolder + "song.json");
+        //load over resources for mobile build
+        string jsonString = Resources.Load<TextAsset>(songFolder + "song").text;
         Song song = JsonUtility.FromJson<Song>(jsonString);
         
         song.LoadResources(songFolder);
